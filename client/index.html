@@ -8,36 +8,136 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
   </head>
   <body>
       <header>
-        <nav>
-
+        <nav class="navbar navbar-dark bg-dark">
+          
+          <div class="fixed-top">
+            <div class="collapse" id="navbarToggleExternalContent">
+              <div class="bg-dark p-4">
+                <a class="navbar-brand ml-auto mr-auto" href="#">
+                  <img src="/client/assets/logo2.png" width="160" height="100" class="d-inline-block align-top" alt="" loading="lazy">
+                </a>
+                <h5 class="text-white h4">Collapsed content</h5>
+                <span class="text-muted">Toggleable via the navbar brand.</span>
+              </div>
+            </div>
+            <nav class="navbar navbar-dark bg-dark">
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+            </nav>
+          </div>
         </nav>
       </header>
       <main>
           <div class="content" id="form-login">
               <article>
                   <div class="header">
-                      <h1>
-                        Login Form
+                      <h1 style="text-align: center;">
+                        Sports API
                       </h1>
                   </div>
                   <div class="container">
-
+                    <iframe class="card-img" width="840" height="472" src="https://www.youtube.com/embed/gb7Cf9CfP90" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                   </div>
               </article>
           </div>
           <div class="content" id="form-register">
             <article>
                 <div class="header">
-                    <h1>
-                        Register Form
+                    <h1 style="text-align: center;">
+                        Pinterest API
                     </h1>
+                    <form class="form-inline my-2 my-lg-0" id="seach-img">
+                      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="search-input">
+                      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </form>
                 </div>
                 <div class="container">
-                    
+                    <div class="row">
+                      <div class="col-md">
+                        <div class="card">
+                          <img src="https://blog.traveloka.com/en/wp-content/uploads/sites/3/2018/08/wanna-travel-but-broke.jpg" class="card-img-top" alt="...">
+                          <div class="card-body">
+                            <a href="#" class="btn btn-primary"><i onclick="myFunction(this)" class="fa fa-thumbs-up"></i></a>
+                            <a href="#" class="btn btn-primary"><i onclick="myFunction(this)" class="fa fa-thumbs-down"></i></a>
+                            <br>
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-md">
+                        <div class="card">
+                          <img src="https://img.delicious.com.au/WqbvXLhs/del/2016/06/more-the-merrier-31380-2.jpg" class="card-img-top" alt="...">
+                          <div class="card-body">
+                            <a href="#" class="btn btn-primary"><i onclick="myFunction(this)" class="fa fa-thumbs-up"></i></a>
+                            <a href="#" class="btn btn-primary"><i onclick="myFunction(this)" class="fa fa-thumbs-down"></i></a>
+                            <br>
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-md">
+                        <div class="card">
+                          <img src="https://blog.mimio.com/hs-fs/hubfs/1e4f1720-6c9c-0134-187a-060e3e89e053.jpg?width=500&name=1e4f1720-6c9c-0134-187a-060e3e89e053.jpg" class="card-img-top" alt="...">
+                          <div class="card-body">
+                            <a href="#" class="btn btn-primary"><i onclick="myFunction(this)" class="fa fa-thumbs-up"></i></a>
+                            <a href="#" class="btn btn-primary"><i onclick="myFunction(this)" class="fa fa-thumbs-down"></i></a>
+                            <br>
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md">
+                        <div class="card">
+                          <img src="https://i.pinimg.com/originals/de/46/68/de466815fa4be9470c2c40c4c9ffcc2b.jpg" class="card-img-top" alt="...">
+                          <div class="card-body">
+                            <a href="#" class="btn btn-primary"><i onclick="myFunction(this)" class="fa fa-thumbs-up"></i></a>
+                            <a href="#" class="btn btn-primary"><i onclick="myFunction(this)" class="fa fa-thumbs-down"></i></a>
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-md">
+                        <div class="card">
+                          <img src="https://live.staticflickr.com/289/31863669931_c45a74d987_n.jpg" class="card-img-top" alt="...">
+                          <div class="card-body">
+                            <a href="#" class="btn btn-primary"><i onclick="myFunction(this)" class="fa fa-thumbs-up"></i></a>
+                            <a href="#" class="btn btn-primary"><i onclick="myFunction(this)" class="fa fa-thumbs-down"></i></a>
+                            <br>
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-md">
+                        <div class="card">
+                          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRiVLXE2NveFIkksJj7KKfh0_8fbrGGYccODQ&usqp=CAU" class="card-img-top" alt="...">
+                          <div class="card-body">
+                            <a href="#" class="btn btn-primary"><i onclick="myFunction(this)" class="fa fa-thumbs-up"></i></a>
+                            <a href="#" class="btn btn-primary"><i onclick="myFunction(this)" class="fa fa-thumbs-down"></i></a>
+                            <br>
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                 </div>
             </article>
         </div>
