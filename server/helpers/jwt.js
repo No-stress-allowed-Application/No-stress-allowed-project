@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken')
 const secret = process.env.SECRET
 
 const generateToken = (user) => {
+  console.log('HIT');
   const access_token = jwt.sign({
     email : user.email, id : user.id
   }, secret)
