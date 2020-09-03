@@ -63,6 +63,26 @@ login = e => {
         }
     })
 }
+function onSignIn (googleUser) {
+    const profile = googleUser.getBasicProfile()
+    const id_token = googleUser.getAuthResponse().id_token
+    $.ajax({
+      url: `${baseUrl}/users/logingoogle`,
+      method: 'POST',
+      data: {
+        id_token: id_token
+      }
+    })
+      .done(function (response) {
+        console.log(response)
+        localStorage.setItem('token', response.token)
+        console.log('User successfully signed in')
+        currentPage()
+      })
+      .fail(err => {
+        console.log(err)
+      })
+}
 logout = () => {
     $('.msg').empty()
     beforeLogin()
