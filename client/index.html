@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Title</title>
+    <title>NSAW!</title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -46,14 +46,14 @@
                           <form id="login-form">
                             <div class="form-input">
                               <span><i class="fa fa-envelope"></i></span>
-                              <input type="email" placeholder="Email Address" name="email-login" id="email-login" required>
+                              <input type="email" placeholder="Email Address" name="email-login" id="email-login" >
                             </div>
                             <div class="form-input">
                               <span><i class="fa fa-lock"></i></span>
-                              <input type="password" placeholder="Password" ame="password-login" id="password-login" required>
+                              <input type="password" placeholder="Password" ame="password-login" id="password-login" >
                             </div>
                             <div class="text-left mb-3">
-                              <button type="submit" class="btn">Login</button>
+                              <button type="submit" class="btn" id="btn-login">Login</button>
                             </div>
                             <div class="text-center mb-2">
                               <div class="mb-3" style="color: #fff">or login with</div>                
@@ -80,15 +80,19 @@
                         </div>
                         <form id="register-form">
                           <div class="form-input">
+                            <span><i class="fas fa-user"></i></span>
+                            <input type="text" placeholder="Username" name="username-register" id="username-register" >
+                          </div>
+                          <div class="form-input">
                             <span><i class="fa fa-envelope"></i></span>
-                            <input type="email" placeholder="Email Address" name="email-register" id="email-register" required>
+                            <input type="email" placeholder="Email Address" name="email-register" id="email-register" >
                           </div>
                           <div class="form-input">
                             <span><i class="fa fa-lock"></i></span>
-                            <input type="password" placeholder="Password" name="password-register" id="password-register" required>
+                            <input type="password" placeholder="Password" name="password-register" id="password-register" >
                           </div>
                           <div class="text-left mb-3">
-                            <button type="submit" class="btn">Register</button>
+                            <button type="submit" class="btn" id="btn-register">Register</button>
                           </div>
                           <div class="text-center mb-2">
                             <div class="mb-3" style="color: #fff">or register with</div>              

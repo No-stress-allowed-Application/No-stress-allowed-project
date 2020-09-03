@@ -83,7 +83,7 @@ article .header h1 {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    min-height: 80vh;
+    min-height: 90vh;
 }
 .form-box h1{
    text-align: center;
