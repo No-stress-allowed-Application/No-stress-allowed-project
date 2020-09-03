@@ -10,6 +10,9 @@ header {
 }
 nav {
    background:#079992;
+   -webkit-box-shadow: 0 6px 6px -6px black;
+   -moz-box-shadow: 0 6px 6px -6px black;
+        box-shadow: 0 6px 6px -6px black;
 }
 #navbarSupportedContent {
    font-size: 20px;

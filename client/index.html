@@ -13,7 +13,7 @@
   </head>
   <body>
       <header>
-        <nav class="navbar navbar-expand-lg navbar-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
           <a class="navbar-brand" href="#" id="logo">NoStressAllowed <i class="far fa-grin"></i></a>
           
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,16 +34,14 @@
         </nav>
       </header>
       <main>
-          <div class="content" id="form-login">
+          <div class="content" id="login">
               <article>
-                <div class="header">
-
-                </div>
                   <div class="container">
                       <div class="col-lg-6 col-md-6 form-container">
                         <div class="col-lg-8 col-md-12 col-sm-9 col-xs-12 form-box text-center">
                           <div class="heading mb-4">
                             <h1>Login</h1>
+                            <div class="msg"></div>
                           </div>
                           <form id="login-form">
                             <div class="form-input">
@@ -63,7 +61,7 @@
                               <a href="" class="btn btn-social btn-google"><i class="fab fa-google"></i> google</a>                
                             </div>
                             <div style="color: #fff">Don't have an account?
-                              <a href="register.html" class="register-link">Register here</a>
+                              <a href="#" class="register-link">Register here</a>
                             </div>
                           </form>
                         </div>
@@ -71,18 +69,16 @@
                   </div>
               </article>
           </div>
-          <div class="content" id="form-register">
+          <div class="content" id="register">
             <article>
-                <div class="header">
-
-                </div>
                 <div class="container">
                     <div class="col-lg-6 col-md-6 form-container">
                       <div class="col-lg-8 col-md-12 col-sm-9 col-xs-12 form-box text-center">
                         <div class="heading mb-4">
                           <h1>Register</h1>
+                          <div class="msg"></div>
                         </div>
-                        <form id="register">
+                        <form id="register-form">
                           <div class="form-input">
                             <span><i class="fa fa-envelope"></i></span>
                             <input type="email" placeholder="Email Address" name="email-register" id="email-register" required>
@@ -100,7 +96,7 @@
                             <a href="" class="btn btn-social btn-google"><i class="fab fa-google"></i> google</a>               
                           </div>
                           <div style="color: #fff">Already have an account?
-                            <a href="login.html" class="login-link">Login here</a>
+                            <a href="#" class="login-link">Login here</a>
                           </div>
                         </form>
                       </div>
