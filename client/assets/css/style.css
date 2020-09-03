@@ -5,6 +5,52 @@
     padding: 0;
     font-family: 'Quicksand', sans-serif;
  }
+header {
+   display: inline;
+}
+nav {
+   background:#079992;
+}
+#navbarSupportedContent {
+   font-size: 20px;
+   font-weight: bold;
+}
+.nav-link::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: white;
+  transition: width .3s; 
+}
+.nav-link:hover::after{
+   width: 100%;
+   transition: width .3s;
+}
+#logout {
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+   width: 150px;
+   height: 40px;
+   border-right: 5px;
+   background-color: #fff;
+   color: #000;
+   font-weight: bold;
+   transition: 0.5s;
+}
+#logout:hover{
+   box-shadow: 0px 9px 10px -2px rgba(0,0,0,0.55);
+   -webkit-box-shadow: 0px 9px 10px -2px rgba(0,0,0,0.55);
+   -moz-box-shadow: 0px 9px 10px -2px rgba(0,0,0,0.55);
+   background-color: #079992;
+   color: white;
+   border: 2px solid white;
+}
+#logo {
+   font-family: 'Londrina Solid', cursive;
+   font-size: 2em;
+}
 .header {
     margin-bottom: 30px;
     text-align: center;
@@ -34,13 +80,14 @@ article .header h1 {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    min-height: 100vh;
+    min-height: 80vh;
 }
-
-.form-box h4{
-    font-weight: bold;
-    color: #fff;
-    letter-spacing: 3px;
+.form-box h1{
+   text-align: center;
+   font-size: 50px;
+   letter-spacing: 5px;
+   font-weight: bolder;
+   color: #fff;
 }
 
 .form-box .form-input{
