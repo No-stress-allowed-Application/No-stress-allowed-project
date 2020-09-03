@@ -74,25 +74,14 @@ article .header h1 {
     border-bottom: 2px solid #48403d;
 }
 
-.form-box input[type="checkbox"]:not(:checked) + label:before{
-    background: transparent;
-    border: 2px solid #fff;
-    width: 15px;
-    height: 15px;
-}
-
-.form-box .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before{
-    background-color: #48403d;
-    border: 0px;
-}
-
-.forget-link, .register-link, .login-link{
+.register-link, .login-link{
     color: #fff;
     font-weight: bold;
 }
 
-.forget-link:hover, .register-link:hover, .login-link:hover{
+.register-link:hover, .login-link:hover{
     color: #292525;
+    text-decoration: none;
 }
 
 .form-box button[type="submit"]{
