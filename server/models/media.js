@@ -17,7 +17,8 @@ module.exports = (sequelize, DataTypes) => {
   Media.init({
     title: DataTypes.STRING,
     url_link: DataTypes.STRING,
-    review: DataTypes.BOOLEAN
+    review: DataTypes.BOOLEAN,
+    UserId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Media',
