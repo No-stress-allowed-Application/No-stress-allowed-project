@@ -3,7 +3,7 @@
 const { Media } = require('../models')
 
 class MediaController {
-  static getMedia (req, res, next) {
+  static async getMedia (req, res, next) {
     const id = req.userData.id
     try {
       let show = await Media.findAll({
@@ -17,7 +17,7 @@ class MediaController {
     }
   }
 
-  static addMedia (req, res, next) {
+  static async addMedia (req, res, next) {
     const {title,url_link,review} = req.body
     const UserId = req.userData.id
 
@@ -31,7 +31,7 @@ class MediaController {
     }
   }
 
-  static updateMedia (req, res, next) {
+  static async updateMedia (req, res, next) {
     const {title,url_link,review} = req.body
     const id = req.params.id
 
@@ -53,7 +53,7 @@ class MediaController {
     }
   }
 
-  static deleteMedia (req, res, next) {
+  static async deleteMedia (req, res, next) {
     try {
       await Media.destroy({where: {id:req.params.id}})
       res.status(200).json({message:'Berhasil dihapus'})
