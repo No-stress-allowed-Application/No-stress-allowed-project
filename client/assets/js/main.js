@@ -93,6 +93,7 @@ function onSignIn (googleUser) {
       .fail(err => {
         console.log(err)
       })
+}
 
 logout = () => {
     $('.msg').empty()
@@ -139,5 +140,24 @@ $(document).ready(() => {
     
     // });
     
+    // video
+    $.ajax({
+      method:'GET',
+      url:'http://localhost:3004/sport',
+      
+    })
+    .done((response)=>{
+      let random = Math.floor(Math.random()* response.length)
+      console.log(response[0].embed)
+      $('#video-insert').append(
+        response[0].embed
+      )
+      $('#video-title').append(
+        `<h5 class="card-title">${response[0].title}</h5>`
+      )
+    })
+    .fail((err)=>{
+      console.log(err)
+    })
 })
-}
+
