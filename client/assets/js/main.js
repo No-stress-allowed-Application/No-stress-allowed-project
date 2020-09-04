@@ -74,7 +74,6 @@ afterLogin = () => {
 //         }
 //     })
 // }
-=======
 function onSignIn (googleUser) {
     const profile = googleUser.getBasicProfile()
     const id_token = googleUser.getAuthResponse().id_token
@@ -130,4 +129,4 @@ $(document).ready(() => {
 
     
 })
-
+}
