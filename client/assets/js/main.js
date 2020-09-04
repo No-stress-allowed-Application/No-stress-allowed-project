@@ -3,13 +3,17 @@ initContent = () => {
   $('#register').hide()
 }
 beforeLogin = () => {
+  $('#video').hide()
+  $('#card-image').hide()
   $('header').hide()
   $('#login').show()
 }
 afterLogin = () => {
   $('header').show()
   $('#register').hide()
-  $('#login').hide()   
+  $('#login').hide() 
+  $('#video').hide()
+  $('#card-image').hide()  
 }
 register = e => {
   e.preventDefault()
@@ -67,24 +71,31 @@ function onSignIn (googleUser) {
   const profile = googleUser.getBasicProfile()
   const id_token = googleUser.getAuthResponse().id_token
   $.ajax({
-    url: `${baseUrl}/users/logingoogle`,
+    url: `http://localhost:3000/users/logingoogle`,
     method: 'POST',
     data: {
       id_token: id_token
     }
   })
     .done(function (response) {
-      console.log(response)
-      localStorage.setItem('token', response.token)
-      console.log('User successfully signed in')
-      currentPage()
+      localStorage.setItem('access_token', res.access_token)
+      afterLogin()
+      console.log(response);
+      $('.msg').append(`<div class="alert alert-success" role="alert">Login success!</div>`)
     })
     .fail(err => {
       console.log(err)
     })
 }
+function signOut() {
+  var auth2 = gapi.auth2.getAuthInstance();
+  auth2.signOut().then(function () {
+    console.log('User signed out.');
+  });
+}
 logout = () => {
   $('.msg').empty()
+  signOut()
   beforeLogin()
   localStorage.clear()
   $('.msg').append(`<div class="alert alert-success" role="alert">You've logged out!</div>`)
@@ -98,7 +109,7 @@ $(document).ready(() => {
       beforeLogin()
   }  
 
-  $('button, a.btn, a.register-link, a.login-link').click( () => {       
+  $('button, a.btn, a.register-link, a.login-link', '#nav-video', '#nav-image').click( () => {       
       $('.msg').empty()
   })
 
@@ -115,6 +126,29 @@ $(document).ready(() => {
   $('#register-form').submit(register)
   $('#login-form').submit(login)
   $('#logout').click(logout)
+  $('.g-signin2').click(onSignIn)
 
+  $('#logo').click(e => {
+    $.ajax({
+      url: `http://localhost:3000/sport`,
+      method: 'GET'
+    })
+      .done(function (response) {
+        console.log(response);
+      })
+      .fail(err => {
+        console.log(err)
+      })
+  })
+  $('#nav-video').click(e=> {
+    $('#video').show()
+    $('#card-image').hide()
+    $('header').show()
+  })
+  $('#nav-image').click(e=> {
+    $('#video').hide()
+    $('#card-image').show()
+    $('header').show()
+  })
   
 })
