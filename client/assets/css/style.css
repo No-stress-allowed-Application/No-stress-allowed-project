@@ -70,8 +70,14 @@ article .header h1 {
    font-weight: bolder;
 }
 .container {
-   display: flex;
-   justify-content: center;
+    /* display: -ms-flexbox;
+    -ms-flexbox-wrap: wrap;
+    -ms-flexbox-direction: column;
+    -webkit-flex-flow: row wrap;
+    flex-flow: row wrap;
+    display: -webkit-box; */
+    display: flex;
+    justify-content: center;
 }
 .form-container{
     background-color: #079992;
@@ -156,7 +162,7 @@ article .header h1 {
     border: 2px solid white;
 }
 
-.form-box .btn-social{
+.form-box .btn-social, .g-signin2{
     color: #fff;
     border: 0px;
     display: inline-block;
@@ -183,20 +189,17 @@ article .header h1 {
     background: #bf3b31;
     color: #fff;
 }
-
+#video iframe {
+    margin: 10px 10px;
+}
 .card{
-    background-color: #079992;
-    color: #fff;
+    background-color: #fafafa;
     font-weight: bold;
 
 }
-
-#video{
-    text-align-last: center;
-    font-weight: bold;
-}
-#video iframe{
-    margin: auto;
+.search {
+    display: flex;
+    justify-content: center;
 }
 
 

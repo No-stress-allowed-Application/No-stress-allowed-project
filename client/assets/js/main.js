@@ -89,6 +89,7 @@ function onSignIn (googleUser) {
         localStorage.setItem('token', response.token)
         console.log('User successfully signed in')
         currentPage()
+        $('.msg').append(`<div class="alert alert-success" role="alert">Login success!</div>`)
       })
       .fail(err => {
         console.log(err)
