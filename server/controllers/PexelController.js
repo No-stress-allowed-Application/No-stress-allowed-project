@@ -10,8 +10,8 @@ class PexelController {
       } 
     })
     .then((response)=>{
-      console.log(response.data)
-      res.status(200).json(response.data)
+      console.log(response.data,'ini respon')
+      res.status(200).json({data:response.data})
     })
     .catch(err => next(err))
   }
