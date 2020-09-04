@@ -3,7 +3,9 @@
 const router = require('express').Router()
 const MediaController = require('../controllers/MediaController')
 const {authentication} = require('../middlewares/authentication');
+const WeatherController = require('../controllers/WeatherController')
 
+router.get("/weather", WeatherController.getWeather)
 router.use(authentication)
 router.get("/", MediaController.getMedia);
 router.post("/", MediaController.addMedia);
