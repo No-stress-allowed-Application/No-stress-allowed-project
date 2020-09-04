@@ -5,11 +5,81 @@ initContent = () => {
 beforeLogin = () => {
   $('header').hide()
   $('#login').show()
+  $('#video').hide()
+  $('#cards').hide()
+
+  $.ajax({
+    method: 'GET',
+    url: 'http://localhost:3000/media/pexels',
+    
+  })
+  .done((response)=>{
+    console.log('ini res')
+    console.log(response.data.photos[0])
+    $('#isi-cards').append(`
+      <div class="row">
+                <div class="col-md">
+                  <div class="card">
+                    <img src="${response.data.photos[0].url}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <div class="like-dislike">
+                        <a href="#" class="btn btn-light"><i onclick="myFunction(this)" class="fa fa-thumbs-up"></i></a>
+                        <a href="#" class="btn btn-light"><i onclick="myFunction(this)" class="fa fa-thumbs-down"></i></a>
+                      </div>
+                      <br>
+                      <h5 class="card-title">${response.data.photos[0].photographer}</h5>
+                      <p class="card-text"></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md">
+                  <div class="card">
+                    <img src="${response.data.photos[1].url}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <div class="like-dislike">
+                        <a href="#" class="btn btn-light"><i onclick="myFunction(this)" class="fa fa-thumbs-up"></i></a>
+                        <a href="#" class="btn btn-light"><i onclick="myFunction(this)" class="fa fa-thumbs-down"></i></a>
+                      </div>
+                      <br>
+                      <h5 class="card-title">${response.data.photos[1].photographer}</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md">
+                  <div class="card">
+                    <img src="${response.data.photos[1].url}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <div class="like-dislike">
+                        <a href="#" class="btn btn-light"><i onclick="myFunction(this)" class="fa fa-thumbs-up"></i></a>
+                        <a href="#" class="btn btn-light"><i onclick="myFunction(this)" class="fa fa-thumbs-down"></i></a>
+                      </div>
+                      <br>
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>`
+    )
+
+  })
+  .fail((err)=>{
+    console.log('ini err')
+    console.log(err)
+  })
+ 
 }
+
 afterLogin = () => {
   $('header').show()
   $('#register').hide()
   $('#login').hide()   
+
+  
 }
 register = e => {
   e.preventDefault()
