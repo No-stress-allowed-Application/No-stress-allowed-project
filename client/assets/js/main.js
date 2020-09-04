@@ -128,18 +128,6 @@ $(document).ready(() => {
   $('#logout').click(logout)
   $('.g-signin2').click(onSignIn)
 
-  $('#logo').click(e => {
-    $.ajax({
-      url: `http://localhost:3000/sport`,
-      method: 'GET'
-    })
-      .done(function (response) {
-        console.log(response);
-      })
-      .fail(err => {
-        console.log(err)
-      })
-  })
   $('#nav-video').click(e=> {
     $('#video').show()
     $('#card-image').hide()
