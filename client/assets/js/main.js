@@ -103,6 +103,19 @@ logout = () => {
 $(document).ready(() => {
     // initContent()
 
+    $('#register-form').submit(register)
+    $('#login-form').submit(login)
+    $('#logout').click(logout)
+    // $(document).ready(function() {
+      $.ajaxSetup({ cache: true });
+      $.getScript('https://connect.facebook.net/en_US/sdk.js', function(){
+        FB.init({
+          appId: '{2717854461762906}',
+          version: 'v2.7'
+        });
+        $('#loginbutton').removeAttr('disabled');
+        FB.getLoginStatus(updateStatusCallback);
+      });
     // if(localStorage.getItem('access_token')){
     //     afterLogin()
     // }else{
@@ -123,10 +136,8 @@ $(document).ready(() => {
     //     $('#login').show()        
     // })
 
-    $('#register-form').submit(register)
-    $('#login-form').submit(login)
-    $('#logout').click(logout)
-
+    
+    // });
     
 })
 }
