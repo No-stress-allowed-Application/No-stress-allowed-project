@@ -161,8 +161,7 @@ $(document).ready(() => {
       console.log(err)
     })
 })
-<<<<<<< HEAD
-}
+
 // masih coba coba api
 
 // $(document).ready(()=>{
@@ -189,6 +188,4 @@ $(document).ready(() => {
 //     })
         
 // })
-=======
 
->>>>>>> ddf3dfe2c0fbf8a71332bd2ec6bb66d78798de05

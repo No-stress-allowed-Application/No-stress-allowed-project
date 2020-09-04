@@ -189,7 +189,7 @@ article .header h1 {
     background: #bf3b31;
     color: #fff;
 }
-#video iframe {
+#video .container div {
     margin: 10px 10px;
 }
 .card{
