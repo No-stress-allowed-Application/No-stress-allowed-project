@@ -1,191 +1,120 @@
-
-// initContent = () => {
-//     $('#login').hide()
-//     $('#register').hide()
-//     $('#video').hide()
-//     $('#search').hide()
-//     $('#cards').hide()
-// }
+initContent = () => {
+  $('#login').hide()
+  $('#register').hide()
+}
 beforeLogin = () => {
-    $('header').hide()
-    $('#login').show()
-    $('#video').hide()
-    $('#search').hide()
-    $('#cards').hide()
+  $('header').hide()
+  $('#login').show()
 }
 afterLogin = () => {
-    $('header').show()
-    $('#register').hide()
-    $('#login').hide() 
-    $('#video').show()
-    $('#search').show()
-    $('#cards').show()  
+  $('header').show()
+  $('#register').hide()
+  $('#login').hide()   
 }
-
-// register = e => {
-//     e.preventDefault()
-//     const username = $('#username-register').val()
-//     const email = $('#email-register').val()
-//     const password = $('#password-register').val()
-//     $.ajax({
-//         method: 'POST',
-//         url: 'http://localhost:3000/users/register',
-//         data: {
-//             username,
-//             email,
-//             password
-//         }
-//     })
-//     .done(res => {
-//         $('#username-register').val('')
-//         $('#email-register').val('')
-//         $('#password-register').val('')
-//         beforeLogin()
-//         $('.msg').append(`<div class="alert alert-success" role="alert">Account created successfully!</div>`)
-//     })
-//     .fail(err => {
-//         for(const el of err.responseJSON.errors){
-//             $('.msg').append(`<div class="alert alert-danger" role="alert">${el}</div>`)
-//         }
-//     })
-// }
-// login = e => {
-//     e.preventDefault()
-//     const email = $('#email-login').val()
-//     const password = $('#password-login').val()
-//     $.ajax({
-//         method: 'POST',
-//         url: 'http://localhost:3000/users/login',
-//         data: {
-//             email,
-//             password
-//         }
-//     })
-//     .done(res => {
-//         $('#email-login').val('')
-//         $('#password-login').val('')
-//         localStorage.setItem('access_token', res.access_token)
-//         afterLogin()
-//         $('.msg').append(`<div class="alert alert-success" role="alert">Login success!</div>`)
-//     })
-//     .fail(err => {
-//         for(const el of err.responseJSON.errors){
-//             $('.msg').append(`<div class="alert alert-danger" role="alert">${el}</div>`)
-//         }
-//     })
-// }
-function onSignIn (googleUser) {
-    const profile = googleUser.getBasicProfile()
-    const id_token = googleUser.getAuthResponse().id_token
-    $.ajax({
-      url: `${baseUrl}/users/logingoogle`,
+register = e => {
+  e.preventDefault()
+  const username = $('#username-register').val()
+  const email = $('#email-register').val()
+  const password = $('#password-register').val()
+  $.ajax({
       method: 'POST',
+      url: 'http://localhost:3000/users/register',
       data: {
-        id_token: id_token
+          username,
+          email,
+          password
       }
-    })
-      .done(function (response) {
-        console.log(response)
-        localStorage.setItem('token', response.token)
-        console.log('User successfully signed in')
-        currentPage()
-        $('.msg').append(`<div class="alert alert-success" role="alert">Login success!</div>`)
-      })
-      .fail(err => {
-        console.log(err)
-      })
+  })
+  .done(res => {
+      $('#username-register').val('')
+      $('#email-register').val('')
+      $('#password-register').val('')
+      beforeLogin()
+      $('.msg').append(`<div class="alert alert-success" role="alert">Account created successfully!</div>`)
+  })
+  .fail(err => {
+      for(const el of err.responseJSON.errors){
+          $('.msg').append(`<div class="alert alert-danger" role="alert">${el}</div>`)
+      }
+  })
 }
-
-logout = () => {
-    $('.msg').empty()
-    beforeLogin()
-    localStorage.clear()
-    $('.msg').append(`<div class="alert alert-success" role="alert">You've logged out!</div>`)
+login = e => {
+  e.preventDefault()
+  const email = $('#email-login').val()
+  const password = $('#password-login').val()
+  $.ajax({
+      method: 'POST',
+      url: 'http://localhost:3000/users/login',
+      data: {
+          email,
+          password
+      }
+  })
+  .done(res => {
+      $('#email-login').val('')
+      $('#password-login').val('')
+      localStorage.setItem('access_token', res.access_token)
+      afterLogin()
+      $('.msg').append(`<div class="alert alert-success" role="alert">Login success!</div>`)
+  })
+  .fail(err => {
+      for(const el of err.responseJSON.errors){
+          $('.msg').append(`<div class="alert alert-danger" role="alert">${el}</div>`)
+      }
+  })
 }
-$(document).ready(() => {
-    // initContent()
-
-    $('#register-form').submit(register)
-    $('#login-form').submit(login)
-    $('#logout').click(logout)
-    // $(document).ready(function() {
-      $.ajaxSetup({ cache: true });
-      $.getScript('https://connect.facebook.net/en_US/sdk.js', function(){
-        FB.init({
-          appId: '{2717854461762906}',
-          version: 'v2.7'
-        });
-        $('#loginbutton').removeAttr('disabled');
-        FB.getLoginStatus(updateStatusCallback);
-      });
-    // if(localStorage.getItem('access_token')){
-    //     afterLogin()
-    // }else{
-    //     beforeLogin()
-    // }  
-
-    // $('button, a.btn, a.register-link, a.login-link').click( () => {       
-    //     $('.msg').empty()
-    // })
-
-    // $('a.register-link').click(() => {
-    //     $('#register').show()
-    //     $('#login').hide()        
-    // })
-
-    // $('a.login-link').click(() => {
-    //     $('#register').hide()
-    //     $('#login').show()        
-    // })
-
-    
-    // });
-    
-    // video
-    $.ajax({
-      method:'GET',
-      url:'http://localhost:3004/sport',
-      
+function onSignIn (googleUser) {
+  const profile = googleUser.getBasicProfile()
+  const id_token = googleUser.getAuthResponse().id_token
+  $.ajax({
+    url: `${baseUrl}/users/logingoogle`,
+    method: 'POST',
+    data: {
+      id_token: id_token
+    }
+  })
+    .done(function (response) {
+      console.log(response)
+      localStorage.setItem('token', response.token)
+      console.log('User successfully signed in')
+      currentPage()
     })
-    .done((response)=>{
-      let random = Math.floor(Math.random()* response.length)
-      console.log(response[0].embed)
-      $('#video-insert').append(
-        response[0].embed
-      )
-      $('#video-title').append(
-        `<h5 class="card-title">${response[0].title}</h5>`
-      )
-    })
-    .fail((err)=>{
+    .fail(err => {
       console.log(err)
     })
+}
+logout = () => {
+  $('.msg').empty()
+  beforeLogin()
+  localStorage.clear()
+  $('.msg').append(`<div class="alert alert-success" role="alert">You've logged out!</div>`)
+}
+$(document).ready(() => {
+  initContent()
+
+  if(localStorage.getItem('access_token')){
+      afterLogin()
+  }else{
+      beforeLogin()
+  }  
+
+  $('button, a.btn, a.register-link, a.login-link').click( () => {       
+      $('.msg').empty()
+  })
+
+  $('a.register-link').click(() => {
+      $('#register').show()
+      $('#login').hide()        
+  })
+
+  $('a.login-link').click(() => {
+      $('#register').hide()
+      $('#login').show()        
+  })
+
+  $('#register-form').submit(register)
+  $('#login-form').submit(login)
+  $('#logout').click(logout)
+
+  
 })
-
-// masih coba coba api
-
-// $(document).ready(()=>{
-//     const key = '563492ad6f917000010000014eb73d02e9134f9d8f70fa9d5b0c39cc'
-
-//     $('#search-img').submit((event)=>{
-//         event.preventDefault()
-
-//         let search = $('#search-img').val()
-
-//         $.ajax({
-//             method:'GET',
-//             beforeSend:function(xhr){
-//                 xhr.setRequestHeader ("Authorization",key)
-//             },
-//             url:"https://api.pexels.com/v1/search?query="+search+"&per_page=1",
-//             sucess:function(data){
-//                 console.log(data)
-//             },
-//             error:function(err){
-//                 console.log(err)
-//             }
-//         })
-//     })
-        
-// })
-
